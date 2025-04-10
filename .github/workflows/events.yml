@@ -3,6 +3,15 @@ on:
     pull_request:
       types: [opened, edited, reopened, synchronize]
     workflow_dispatch:
+    push:
+      branches:
+        - main # Matches the main branch
+        - 'dev-*'  # Matches branches like dev-1, dev-2-this-is-new, etc.
+        - 'feat/**' # Matches branches like feat/new feat/new/button
+      paths-ignore:
+        - 'README.md' # Ignore changes to README.md
+        - 'docs/**' # Ignore changes to docs folder
+        - '.github/workflows/**' # Ignore changes to workflows folder
 jobs:
   handle-deployment:
     runs-on: ubuntu-latest
