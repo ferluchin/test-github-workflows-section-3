@@ -1,0 +1,17 @@
+name: Events Demo
+on: 
+    pull_request:
+      types: [opened, edited, reopened, synchronize]
+    workflow_dispatch:
+jobs:
+  handle-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event details
+        run: |
+          echo "Event name: ${{ toJson(github.event) }}"
+          echo "Action: ${{ github.event.action }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Sender: ${{ github.actor }}"
+          echo "Event details:"
+          echo "${{ toJson(github.event) }}"
