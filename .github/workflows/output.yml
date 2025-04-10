@@ -1,5 +1,5 @@
 name: Output information
-on: workflow_dispatch
+on: [workflow_dispatch]
 jobs:
   output:
     runs-on: ubuntu-latest
@@ -27,19 +27,19 @@ jobs:
 
       - name: Output GitHub context
         run: |
-          echo "GitHub context:"
-          echo "${{ toJson(github) }}"
-          echo "GitHub event:"
-          echo "${{ toJson(github.event) }}"
-          echo "GitHub workflow:"
-          echo "${{ toJson(github.workflow) }}"
-          echo "GitHub action:"
-          echo "${{ toJson(github.action) }}"
-          echo "GitHub job:"
-          echo "${{ toJson(github.job) }}"
-          echi "Repository:"
+          echo "Repository:"
           echo "${{ toJson(github.repository) }}"
-          echo "Workflow name:"
-          echo "${{ toJson(github.workflow) }}"
-          echo "Run ID:"
-          echo "${{ toJson(github.run_id) }}"
+        #   echo "Workflow name:"
+        #   echo "${{ toJson(github.workflow) }}"
+        #   echo "Run ID:"
+        #   echo "${{ toJson(github.run_id) }}"
+        # echo "GitHub context:"
+        # echo "${{ toJson(github) }}"
+        # echo "GitHub event:"
+        # echo "${{ toJson(github.event) }}"
+        # echo "GitHub workflow:"
+        # echo "${{ toJson(github.workflow) }}"
+        # echo "GitHub action:"
+        # echo "${{ toJson(github.action) }}"
+        # echo "GitHub job:"
+        # echo "${{ toJson(github.job) }}"
